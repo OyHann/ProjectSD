@@ -5,10 +5,10 @@ interface PropsType {
     children: ReactNode;
 }
 
-const Authprovider = ({children}: PropsType) => {
+const AuthProvider = ({children}: PropsType) => {
   return (
     <SessionProvider>{children}</SessionProvider>
   )
 }
 
-export default Authprovider
+export default AuthProvider
