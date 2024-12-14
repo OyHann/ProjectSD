@@ -34,11 +34,3 @@ export const cartSlice = createSlice({
 
 export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
-const initialState: IProduct = {
-    _id: "",
-    imgSrc: "",
-    fileKey: "",
-    name: "",
-    price: "",
-    category: "",
-};
