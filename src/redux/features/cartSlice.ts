@@ -1,11 +1,11 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 interface IProduct {
     id: string;
-    title: string;   
+    title: string;
     img: string;
     price: number;
-    quantity: number;   
+    quantity: number;
 }
 
 const initialState: Array<IProduct> = [];
@@ -15,12 +15,12 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action: PayloadAction<IProduct>) => {
-            if(state.findIndex((pro) => pro.id === action.payload.id) === -1){
+            if (state.findIndex((pro) => pro.id === action.payload.id) === -1) {
                 state.push(action.payload)
             } else {
                 return state.map((item) => {
-                    return item.id === action.payload.id ? {...item, quantity: item.quantity + 1} : item;
-            
+                    return item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item;
+
                 });
             }
         },
@@ -28,9 +28,17 @@ export const cartSlice = createSlice({
         removeFromCart: (state, action: PayloadAction<string>) => {
             const id = action.payload;
             return state.filter((item) => item.id !== id);
-        }   
+        }
     },
 });
 
-export const {addToCart, removeFromCart} = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
+const initialState: IProduct = {
+    _id: "",
+    imgSrc: "",
+    fileKey: "",
+    name: "",
+    price: "",
+    category: "",
+};
